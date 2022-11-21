@@ -391,6 +391,9 @@ namespace {
       }
     }
 
+    dw_qos.representation.value.length(1);
+    dw_qos.representation.value[0] = DDS::XCDR_DATA_REPRESENTATION;
+
     DDS::DataWriter_var dw = pub->create_datawriter(topic, dw_qos, 0, 0);
     if (!dw) {
       Nan::ThrowError("couldn't create DataWriter");
